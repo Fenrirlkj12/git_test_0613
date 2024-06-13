@@ -4,8 +4,12 @@ def sum(*args):
         n+=i
     return n
 
-def testsst():
+def testsst(a):
+    print(a)
+
+def load():
     pass
+
 
 def minus(*args):
     n = args[0]
