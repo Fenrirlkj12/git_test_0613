@@ -4,6 +4,9 @@ def sum(*args):
         n+=i
     return n
 
+def testsst():
+    pass
+
 def minus(*args):
     n = args[0]
     for i in args[1:]:
