@@ -3,7 +3,15 @@ from typing import Literal
 import csv
 
 
-def execute_query(params: dict, code: str, sqlmode: str):
+def execute_query(code: str, sqlmode: str):
+    params = {
+        "server": "10.166.168.127",
+        "database": "HYCX.Noise.ShunDe",
+        "user": "sa",
+        "password": "1a2b3c4D",
+        "name": 1235
+    }
+
     conn = pymssql.connect(**params, charset="utf8")
     cursor = conn.cursor()
 
