@@ -74,7 +74,5 @@ if __name__ == "__main__":
         sqlmode="声压级", stations_code=station["code"], stations_name=station["name"]
     )
     save_to_csv(res, f"{sqlmode}.csv")
-    print('end!')
-
-
-print('sdad...')
+    print('ok')
+    print('sdad...')
