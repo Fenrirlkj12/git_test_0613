@@ -3,14 +3,7 @@ from typing import Literal
 import csv
 
 
-def execute_query(code: str, sqlmode: str):
-    params = {
-        "server": "10.166.168.127",
-        "database": "HYCX.Noise.ShunDe",
-        "user": "sa",
-        "password": "1a2b3c4D",
-    }
-
+def execute_query(params: dict, code: str, sqlmode: str):
     conn = pymssql.connect(**params, charset="utf8")
     cursor = conn.cursor()
 
@@ -34,7 +27,7 @@ def noise_data_sql(
 ):
     res = {}
     for code, name in zip(stations_code, stations_name):
-        res[name] = execute_query(code, sqlmode)
+        res[name] = execute_query(params, code, sqlmode)
     return res
 
 
@@ -47,8 +40,18 @@ def save_to_csv(data, filename):
         for key, value in data.items():
             writer.writerow([key, value])
         print(f"数据已保存至{filename}")
-
+def sum(*args):
+    n = 0
+    for i in args:
+        n+=i
+    return n
 if __name__ == "__main__":
+    params = {
+    "server": "10.166.168.127",
+    "database": "HYCX.Noise.ShunDe",
+    "user": "sa",
+    "password": "1a2b3c4D",
+}
     station = {
         "name": [
             "赛纳科技中心",
@@ -74,4 +77,3 @@ if __name__ == "__main__":
         sqlmode="声压级", stations_code=station["code"], stations_name=station["name"]
     )
     save_to_csv(res, f"{sqlmode}.csv")
-    print('ok')
