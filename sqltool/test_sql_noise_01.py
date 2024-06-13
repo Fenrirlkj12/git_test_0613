@@ -48,6 +48,7 @@ def save_to_csv(data, filename):
             writer.writerow([key, value])
         print(f"数据已保存至{filename}")
 
+
 if __name__ == "__main__":
     station = {
         "name": [
@@ -69,9 +70,8 @@ if __name__ == "__main__":
             "station1",
         ],
     }
-    sqlmode = "声压级"
-    res = noise_data_sql(
-        sqlmode="声压级", stations_code=station["code"], stations_name=station["name"]
-    )
-    save_to_csv(res, f"{sqlmode}.csv")
-
+    sqlmode = '声压级'
+    res = noise_data_sql(sqlmode='声压级', stations_code=station['code'], stations_name=station['name'])
+    save_to_csv(res, f'{sqlmode}.csv')
+    print('end!')
+    print('end!')
