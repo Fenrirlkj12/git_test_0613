@@ -75,3 +75,4 @@ if __name__ == "__main__":
     )
     save_to_csv(res, f"{sqlmode}.csv")
     print('ok')
+    print('sdad...')
